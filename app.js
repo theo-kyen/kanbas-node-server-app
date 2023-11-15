@@ -1,4 +1,4 @@
-import "dotenv/config"
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import Hello from "./hello.js";
@@ -7,10 +7,11 @@ import CourseRoutes from "./courses/routes.js";
 import ModuleRoutes from "./modules/routes.js";
 
 const app = express();
-app.use(cors({
-    credentials: true,
-    origin: process.env.FRONTEND_URL,
-}));
+const options = {
+  credentials: true,
+  origin: process.env.FRONTEND_URL,
+};
+app.use(cors());
 app.use(express.json());
 ModuleRoutes(app);
 CourseRoutes(app);
